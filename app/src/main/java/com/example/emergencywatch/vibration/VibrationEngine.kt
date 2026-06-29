@@ -39,7 +39,7 @@ class VibrationEngine(context: Context) {
 
     /** 알림 1건에 대응하는 진동 재생. */
     fun play(alert: AlertData) {
-        if (!alert.isEmergency) return          // 긴급음 아니면 진동 안 함
+        if (!alert.isEmergency) { stop(); return }   // 긴급음 아니면 진행 중인 진동 멈춤
         play(alert.direction, alert.motion)
     }
 
